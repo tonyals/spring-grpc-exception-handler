@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+option java_multiple_files = true;
+
+package br.com.tony.grpc;
+
+service CreatePersonService {
+  rpc Create(CreatePersonRequest) returns (CreatePersonResponse);
+}
+
+message CreatePersonRequest {
+  google.protobuf.StringValue name = 1;
+  google.protobuf.StringValue email = 2;
+}
+
+message CreatePersonResponse {
+  google.protobuf.Int64Value id = 1;
+  google.protobuf.StringValue name = 2;
+  google.protobuf.StringValue email = 3;
+}
